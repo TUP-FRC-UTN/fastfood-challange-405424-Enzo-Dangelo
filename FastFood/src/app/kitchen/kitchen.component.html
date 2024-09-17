@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header">
+    Componente Cocina
+  </div>
+  <div class="card-body">
+    <h5>Pendiente de Cocinar</h5>
+    <ul class="list-group">
+      <li *ngFor="let pedido of pedidosPendientes$ | async" class="list-group-item d-flex justify-content-between align-items-center">
+        ({{ pedido.number }}) - {{ pedido.description }}
+        <button class="btn btn-primary btn-sm"
+                *ngIf="pedidosEnCoccion$ | async as pedidosEnCoccion"
+                [disabled]="pedidosEnCoccion.length > 0"
+                (click)="cocinar(pedido)">
+          Cocinar
+        </button>
+      </li>
+    </ul>
+    
+    <h5 class="mt-4">Pedidos en cocción</h5>
+    <ul class="list-group">
+      <li *ngFor="let pedido of pedidosEnCoccion$ | async" class="list-group-item d-flex justify-content-between align-items-center">
+        ({{ pedido.number }}) {{ pedido.name }} - {{ pedido.description }}
+        <button class="btn btn-success btn-sm" (click)="terminarCoccion(pedido)">Pedido Terminado</button>
+      </li>
+    </ul>
+  </div>
+</div>

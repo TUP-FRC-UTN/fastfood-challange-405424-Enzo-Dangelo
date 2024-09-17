@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+      Componente Point of Sell - POS
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="ordenar()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="pedido" class="form-label">Descripcion:</label>
+          <input type="text" class="form-control" id="pedido" [(ngModel)]="descripcionPedido" name="pedido" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Ordenar</button>
+      </form>
+    </div>
+  </div>
