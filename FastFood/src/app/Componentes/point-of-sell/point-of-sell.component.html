@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm" class="container mt-4">
+    <h1 class="mb-4">Point of Sale</h1>
+    
+    <div class="mb-3">
+        <label for="nombreInput" class="form-label">Nombre:</label>
+        <input type="text" id="nombreInput" name="name" [(ngModel)]="name" class="form-control">
+    </div>
+    
+    <div class="mb-3">
+        <label for="pedidoInput" class="form-label">Pedido:</label>
+        <input type="text" id="pedidoInput" name="description" [(ngModel)]="description" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ordenar</button>
+</form>

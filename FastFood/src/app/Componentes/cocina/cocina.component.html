@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <h1 class="mb-4">Cocina</h1>
+
+    <div class="mb-4">
+        <b>Pendientes de cocinar</b>
+        <ul class="list-group">
+            @for (pedido of pedidos; track $index) { @if (pedido.estado === 'pendienteDeCocinar') {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ pedido.number }} - {{ pedido.description }}</span>
+                <button (click)="cocinar(pedido)" [disabled]="cocinaOcupada" class="btn btn-success btn-sm">Cocinar</button>
+            </li>
+            } }
+        </ul>
+    </div>
+
+    <div>
+        <b>Pedidos en cocción</b>
+        <ul class="list-group">
+            @for (pedido of pedidos; track $index) { @if (pedido.estado === 'cocinando') {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ pedido.number }} - {{ pedido.description }}</span>
+                <button (click)="terminarCoccion(pedido)" class="btn btn-danger btn-sm">Terminar cocción</button>
+            </li>
+            } }
+        </ul>
+    </div>
+</div>

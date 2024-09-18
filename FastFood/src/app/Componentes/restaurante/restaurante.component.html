@@ -1,0 +1,12 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Pedidos Ingresados</h2>
+    <pre class="bg-light p-3 border rounded">
+        @for (pedido of pedidos; track $index) { @if (pedido.estado === 'pendienteDeCocinar') {
+            {{ '{' }} "nombre": "{{pedido.name}}", "descripcion": "{{pedido.description}}", "numero": {{pedido.number}} {{ '}' }}
+        } }
+    </pre>
+</div>
+
+<app-entrega></app-entrega>
+<app-point-of-sell></app-point-of-sell>
+<app-cocina></app-cocina>
